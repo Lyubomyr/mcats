@@ -1,23 +1,32 @@
 source 'https://rubygems.org'
 
 gem 'rails',                        '3.2.15'
+gem "thin",                       "~> 1.6.1"
 gem "devise",                   "~> 3.2.2"
-
+gem "simple_form",          "~> 2.1.1"
 gem 'sqlite3'
-
+# gem 'cancan'
+# gem "rolify"
+gem 'jquery-rails'
 
 group :assets do
   gem 'sass-rails',             '~> 3.2.3'
   gem 'coffee-rails',          '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
+  gem "therubyracer",       "~> 0.12.0"
   gem 'uglifier',                 '>= 1.0.3'
-  gem "bootstrap-sass",   "~> 3.0.2.1"
+  gem "bootstrap-sass", "~> 3.0.3.0"
 end
 
-gem 'jquery-rails'
+group :development do
+  gem 'rails_layout'
+  gem 'better_errors'
+  gem 'quiet_assets'
+end
+
+group :development, :test do
+  gem 'factory_girl_rails'
+  gem 'rspec-rails'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
