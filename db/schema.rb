@@ -11,23 +11,37 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140112150714) do
+ActiveRecord::Schema.define(:version => 20140112181709) do
 
   create_table "position_field_types", :force => true do |t|
-    t.string   "field_type"
+    t.string   "field_type", :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
+  create_table "position_fields", :force => true do |t|
+    t.string   "title",       :null => false
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "position_template_fields", :force => true do |t|
+    t.string   "title",       :null => false
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "position_templates", :force => true do |t|
-    t.string   "title"
+    t.string   "title",       :null => false
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
   create_table "positions", :force => true do |t|
-    t.string   "title"
+    t.string   "title",      :null => false
     t.datetime "closed_at"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
