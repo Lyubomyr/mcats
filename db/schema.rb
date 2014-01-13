@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140112181709) do
+ActiveRecord::Schema.define(:version => 20140113075802) do
 
   create_table "position_field_types", :force => true do |t|
     t.string   "field_type", :null => false
@@ -20,17 +20,21 @@ ActiveRecord::Schema.define(:version => 20140112181709) do
   end
 
   create_table "position_fields", :force => true do |t|
-    t.string   "title",       :null => false
+    t.string   "title",                  :null => false
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+    t.integer  "position_id"
+    t.integer  "position_field_type_id"
   end
 
   create_table "position_template_fields", :force => true do |t|
-    t.string   "title",       :null => false
+    t.string   "title",                  :null => false
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+    t.integer  "position_template_id"
+    t.integer  "position_field_type_id"
   end
 
   create_table "position_templates", :force => true do |t|
@@ -38,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20140112181709) do
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "user_id"
   end
 
   create_table "positions", :force => true do |t|
@@ -45,6 +50,30 @@ ActiveRecord::Schema.define(:version => 20140112181709) do
     t.datetime "closed_at"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+  end
+
+  create_table "sqlite_sp_functions", :id => false, :force => true do |t|
+    t.text "name"
+    t.text "text"
+  end
+
+# Could not dump table "sqlite_stat1" because of following StandardError
+#   Unknown type '' for column 'tbl'
+
+# Could not dump table "sqlite_stat4" because of following StandardError
+#   Unknown type '' for column 'tbl'
+
+  create_table "sqlite_vs_links_names", :id => false, :force => true do |t|
+    t.text "name"
+    t.text "alias"
+  end
+
+  create_table "sqlite_vs_properties", :id => false, :force => true do |t|
+    t.text "parentType"
+    t.text "parentName"
+    t.text "propertyName"
+    t.text "propertyValue"
   end
 
   create_table "users", :force => true do |t|
