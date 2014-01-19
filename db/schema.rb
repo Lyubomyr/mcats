@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140113075802) do
+ActiveRecord::Schema.define(:version => 20140115103525) do
 
   create_table "position_field_types", :force => true do |t|
     t.string   "field_type", :null => false
@@ -53,27 +53,15 @@ ActiveRecord::Schema.define(:version => 20140113075802) do
     t.integer  "user_id"
   end
 
-  create_table "sqlite_sp_functions", :id => false, :force => true do |t|
-    t.text "name"
-    t.text "text"
+  create_table "roles", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
-# Could not dump table "sqlite_stat1" because of following StandardError
-#   Unknown type '' for column 'tbl'
-
-# Could not dump table "sqlite_stat4" because of following StandardError
-#   Unknown type '' for column 'tbl'
-
-  create_table "sqlite_vs_links_names", :id => false, :force => true do |t|
-    t.text "name"
-    t.text "alias"
-  end
-
-  create_table "sqlite_vs_properties", :id => false, :force => true do |t|
-    t.text "parentType"
-    t.text "parentName"
-    t.text "propertyName"
-    t.text "propertyValue"
+  create_table "roles_users", :id => false, :force => true do |t|
+    t.integer "role_id"
+    t.integer "user_id"
   end
 
   create_table "users", :force => true do |t|
