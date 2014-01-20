@@ -1,5 +1,8 @@
 <ul class="side-nav">
-  <li> <%= link_to 'Home', root_path, class: 'navbar-brand' %> </li>
+  <li> <%= link_to 'Home', root_path %> </li>
+  <% if user_signed_in? %>
+    <%= link_to 'Create position', new_position_path %>
+  <% end  %>
   </br>
   </br>
    <% if user_signed_in? %>

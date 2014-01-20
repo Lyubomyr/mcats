@@ -1,5 +1,5 @@
 class PositionsController < ApplicationController
-  # before_filter :authenticate_user!
+  before_filter :authenticate_user!
 
   def index
     @positions = Position.all
@@ -26,6 +26,7 @@ class PositionsController < ApplicationController
 
   def show
     @position = Position.find(params[:id])
+    @position_fields = @position.position_fields
   end
 
   def update

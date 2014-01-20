@@ -6,7 +6,20 @@
   </div>
   </br>
 
+  <h3>Fields</h3>
+  <div id="position_fields">
+    <%= f.simple_fields_for :position_fields do |ff| %>
+      <%= render 'position_field_fields', :f => ff %>
+    <% end %>
+    <div class=".links">
+      <%= link_to_add_association 'add field', f, :position_fields %>
+    </div>
+  </div>
+  </br>
+
   <div class="form-actions">
+  </br>
+  </br>
     <%= f.button :submit %>
   </div>
 <% end %>

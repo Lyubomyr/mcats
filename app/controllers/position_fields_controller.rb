@@ -1,0 +1,3 @@
+class PositionFieldsController < ApplicationController
+
+end

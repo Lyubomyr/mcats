@@ -8,6 +8,7 @@ gem 'sqlite3'
 gem 'cancan',                    "~> 1.6.10"
 # gem "rolify"
 gem 'jquery-rails'
+gem "cocoon"
 
 group :assets do
   gem 'sass-rails',             '~> 3.2.3'
